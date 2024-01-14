@@ -5,7 +5,6 @@ using Entities.Models;
 using Service.Contracts;
 using Service.Utility;
 using Shared.DataTransferObjects;
-using Shared.RequestFeatures;
 using System;
 using System.Collections.Generic;
 using System.Linq;

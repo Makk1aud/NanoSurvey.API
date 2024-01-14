@@ -2,7 +2,6 @@
 using NanoSurvey.API.ActionFilters;
 using Service.Contracts;
 using Shared.DataTransferObjects;
-using Shared.RequestFeatures;
 using System.Text.Json;
 
 namespace NanoSurvey.API.Controllers
