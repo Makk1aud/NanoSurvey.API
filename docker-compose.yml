@@ -1,0 +1,32 @@
+﻿version: "3.9"
+networks:
+  deploy-api:
+    driver: bridge
+services:
+  app: 
+    container_name: deploy-api-copy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - deploy-api
+    depends_on:
+      - postgres_db
+  postgres_db:
+    container_name: postgres
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: UAZ9233
+      POSTGRES_DB: NanoSurvey
+    ports:
+      - "5432:5432"
+    networks:
+      - deploy-api
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./Sql/Start.sql:/docker-entrypoint-initdb.d/Start.sql
+volumes:
+  postgres-data:
